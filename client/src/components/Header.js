@@ -30,7 +30,7 @@ const Header = () => {
                         </Col>
 
                         <Col>
-                            <Button variant="secondary">Post Ad</Button>
+                            <Link to="/PostAd">PostAd</Link>
                         </Col>
                     </Col>
                 </Row>

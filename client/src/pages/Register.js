@@ -1,6 +1,7 @@
 import React, { Component, useState } from "react";
 import { Nav, Navbar, NavLink, Form, Button, FormControl, Container, Row, NavItem, Col } from 'react-bootstrap';
 import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 
 const Register = () => {
 
@@ -9,7 +10,7 @@ const Register = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     // const [validated, setValidated] = useState(false);
-    // const [posted, setPosted] = useState(false);
+   const [posted, setPosted] = useState(false);
     // const [passwordError, setPasswordError] = useState(false);
 
     const submit = async (e) => {
@@ -51,7 +52,13 @@ const Register = () => {
         console.log(response.data);
            
        
-        // setPosted(true);
+         setPosted(true);
+    }
+
+    if (posted) {
+        return (
+            <Redirect to="/" />
+        )
     }
 
 
