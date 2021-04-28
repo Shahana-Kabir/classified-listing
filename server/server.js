@@ -4,6 +4,11 @@ const profileRoutes = require('./routes/profile');
 const adsRoutes = require('./routes/ads');
 const PORT = process.env.PORT || process.argv[2] || 8080;
 const cors = require('cors');
+const fileUpload = require('express-fileupload');
+app.use(fileUpload({
+    safeFileNames: true,
+    preserveExtension: 4
+}));
 
 app.use(express.static('public'))
 app.use(express.json());

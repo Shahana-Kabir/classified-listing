@@ -9,18 +9,18 @@ import { Nav, Navbar, NavLink, Form, Button, FormControl, Container, Row, NavIte
 const Header = () => {
     return (
 
-        <div >
-            <Container>
+        <div>
+            <Container className = "bg-light" >
 
 
-                <Row className="d-flex mb-2 mt-2">
+                <Row className="d-flex mb-4 pt-4">
                     <Col md="5">
 
                     <Link to="/">Kijiji</Link>
 
                     </Col>
 
-                    <Col className = "d-flex  flex-row md = 7">
+                    <Col className = "d-flex  flex-row justify-content-end">
 
                         <Col>
                             <Link to="/Register">Register</Link>

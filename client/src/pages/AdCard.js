@@ -36,7 +36,7 @@ const AdCard = () => {
 
             <Row className = "d-flex flex-row justify-content-between">
 
-                {ads.map(ad => <Col key={ad.id} className="mb-4" xs="12"> <Card1 onChange={() => setAdsLoaded(false)} {...ad} /> </Col>)}
+                {ads.map(ad => <Row key={ad.id} className="mb-4" xs="12"> <Card1 onChange={() => setAdsLoaded(false)} {...ad} /> </Row>)}
 
             </Row>
         </Container>

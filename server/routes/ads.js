@@ -22,13 +22,29 @@ router.post('/', (req, res) => {
         id: getRandomId(),
         ad: req.body.ad,
         description: req.body.description,
-        price: req.body.price      
+        price: req.body.price,
+            
     }
 
-    const ads = readAds();
+    const image = req.files.image;
+    const uploadPath = __dirname + '/../public/images/' + ad.id + '-' + image.name;
+
+    image.mv(uploadPath, (err) => {
+        if (err){
+          return res.status(500).send(err);
+        }
+
+        ad.imagePath = 'http://localhost:8080/images/'  + ad.id +  '-' + image.name;
+
+        const ads = readAds();
         ads.push(ad);
         writeAds(ads);
         res.json(ad);
+
+        
+      });
+
+    
 });
 
 
