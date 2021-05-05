@@ -1,0 +1,30 @@
+[
+    {
+      
+      "ad": "gg",
+      "description": "hhh",
+      "price": "50",
+      "imagePath1": "http://localhost:8080/images/sofa1.jpg"
+    },
+    {
+      
+      "ad": "sss",
+      "description": "sss",
+      "price": "50",
+      "imagePath1": "http://localhost:8080/images/sofa2.jpg"
+    },
+    {
+      
+      "ad": "Car",
+      "description": "ssss",
+      "price": "40",
+      "imagePath1": "http://localhost:8080/images/sofa3.jpg"
+    },
+    {
+      
+      "ad": "ggg",
+      "description": "dddd",
+      "price": "30",
+      "imagePath1": "http://localhost:8080/images/sofa1.jpg"
+    }
+  ]

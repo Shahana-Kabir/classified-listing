@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import './header.scss';
 import { Jumbotron } from 'react-bootstrap';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { Nav, Navbar, NavLink, Form, Button, FormControl, Container, Row, NavItem, Col } from 'react-bootstrap';
 
@@ -10,23 +10,23 @@ const Header = () => {
     return (
 
         <div>
-            <Container className = "bg-light" >
+            <Container className="bg-light" >
 
 
                 <Row className="d-flex mb-4 pt-4">
                     <Col md="5">
 
-                    <Link to="/">Kijiji</Link>
+                        <Link to="/">Kijiji</Link>
 
                     </Col>
 
-                    <Col className = "d-flex  flex-row justify-content-end">
+                    <Col className="d-flex  flex-row justify-content-end">
 
                         <Col>
                             <Link to="/Register">Register</Link>
                         </Col>
                         <Col>
-                            <Nav.Link href="#pricing">Log In</Nav.Link>
+                            <Link to="/LogIn">LogIn</Link>
                         </Col>
 
                         <Col>
@@ -44,7 +44,7 @@ const Header = () => {
                     </Col>
                 </Row>
 
-                <Row className = "d-flex flex-row md = 12">
+                <Row className="d-flex flex-row md = 12">
                     <Col>
                         <Nav.Link className="text-secondary" href="#pricing">Buy & Sell</Nav.Link>
                     </Col>

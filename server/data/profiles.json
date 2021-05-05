@@ -179,5 +179,12 @@
     "email": "ss@cc.com",
     "password": "12345",
     "confirmPassword": "12345"
+  },
+  {
+    "id": "4be8d7fd9806c65801fc9c713db13f8ef893f805",
+    "name": "Shahana Kabir",
+    "email": "sbk@gmail.com",
+    "password": "123",
+    "confirmPassword": "123"
   }
 ]

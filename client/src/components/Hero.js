@@ -1,108 +1,56 @@
-import React, { Component, Profiler, useState } from "react";
+import React, { Component, Profiler, useState, useEffect} from "react";
+import ReactDOM from 'react-dom'
 import { Nav, Navbar, NavLink, Form, Button, FormControl, Container, Row, NavItem, Col, Card, Image } from 'react-bootstrap';
 import axios from 'axios';
-import { Redirect, Route } from 'react-router-dom';
+import { Link, Redirect, Route } from 'react-router-dom';
 import sofa1 from '../assets/sofa1.jpg';
-import sofa2 from '../assets/sofa2.jpg';
-import sofa3 from '../assets/sofa3.jpg';
-import sofa4 from '../assets/sofa4.jpg';
-import sofa5 from '../assets/sofa2.jpg';
-import sofa6 from '../assets/sofa2.jpg';
-import AdDetails from './AdDetails';
 
+import AdDetails from './AdDetails';
+import AdCard from '../pages/AdCard';
+import Card1 from './Card1';
+import PopularItem from './PopularItem';
+const details = () => {
+
+    return
+    <AdDetails />
+}
 
 const Hero = () => {
+    const [popular, setPopular] = useState([]);
 
-    function details (e){
-        e.preventDefault();
 
-         <AdDetails />
 
-    }
+    useEffect(async () => {
+        const response = await axios.get('http://localhost:8080/popularAds/')
+        setPopular(response.data)
+    }, []);
+    
+    console.log(popular);
+
+
     return (<div>
-        <Container className="mt-4 bg-gradient">
+        <Container className="mt-4 bg-gradient"  >
 
             <h2>
                 Popular Items...
             </h2>
 
-            <Row className=" d-flex flex-row justify-content-between mt-4">
-                <Card className="mr-9.37 ml-4 " style={{ width: '12rem' }} onClick = {details} >
-                    <Card.Img variant="top" src={sofa1} />
-                    <Card.Body>
-                        <Card.Text>
-                            Price: 200CAD
-                        </Card.Text>
-                    </Card.Body>
-                </Card>
+            <Row className="d-flex flex-row justify-content-between">
+            {popular.map(ad => <Row key={ad.id} className="mb-4" xs="12"> <PopularItem {...ad} /> </Row>)}
+                
 
-                <Card className="mr-9.37 ml-4 " style={{ width: '12rem' }} >
-                    <Card.Img variant="top" src={sofa2} />
-                    <Card.Body>
-                        <Card.Text>
-                            Price: 200CAD
-                        </Card.Text>
-                    </Card.Body>
-                </Card>
-                <Card className="mr-9.37 ml-4 " style={{ width: '12rem' }} >
-                    <Card.Img variant="top" src={sofa3} />
-                    <Card.Body>
-                        <Card.Text>
-                            Price: 200CAD
-                        </Card.Text>
-                    </Card.Body>
-                </Card>
-                <Card className="mr-9.37 ml-4 " style={{ width: '12rem' }} >
-                    <Card.Img variant="top" src={sofa4} />
-                    <Card.Body>
-                        <Card.Text>
-                            Price: 200CAD
-                        </Card.Text>
-                    </Card.Body>
-                </Card>
-
+                
             </Row>
 
-            <h2 className = "mt-4 mb-4">
-                Suggestions for you...
+            <h2 className="mt-4 mb-4">
+                Most recent Ads...
             </h2>
 
-            <Row className=" d-flex flex-row justify-content-between mt-4">
-                <Card className="mr-9.37 ml-4 " style={{ width: '12rem' }} >
-                    <Card.Img variant="top" src={sofa5} />
-                    <Card.Body>
-                        <Card.Text>
-                            Price: 200CAD
-                        </Card.Text>
-                    </Card.Body>
-                </Card>
-
-                <Card className="mr-9.37 ml-4 " style={{ width: '12rem' }} >
-                    <Card.Img variant="top" src={sofa6} />
-                    <Card.Body>
-                        <Card.Text>
-                            Price: 200CAD
-                        </Card.Text>
-                    </Card.Body>
-                </Card>
-                <Card className="mr-9.37 ml-4 " style={{ width: '12rem' }} >
-                    <Card.Img variant="top" src={sofa1} />
-                    <Card.Body>
-                        <Card.Text>
-                            Price: 200CAD
-                        </Card.Text>
-                    </Card.Body>
-                </Card>
-                <Card className="mr-9.37 ml-4 " style={{ width: '12rem' }} >
-                    <Card.Img variant="top" src={sofa1} />
-                    <Card.Body>
-                        <Card.Text>
-                            Price: 200CAD
-                        </Card.Text>
-                    </Card.Body>
-                </Card>
-
+            <Row>
+                <AdCard />
             </Row>
+
+     
 
 
 
