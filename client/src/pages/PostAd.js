@@ -23,6 +23,8 @@ const PostAd = () => {
         formData.append("price", price);
         formData.append("description", description);
         formData.append("image", image);
+        const token = sessionStorage.getItem('token');
+        formData.append("token", token);
         
 
         const response = await axios.post('http://localhost:8080/ads/', formData, {

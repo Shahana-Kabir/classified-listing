@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const fs = require('fs');
 const crypto = require('crypto');
+const { getProfileId } = require('./tokens');
+const {readProfiles} = require('./profiledata');
 
 function readAds() {
     const ads = fs.readFileSync('./data/ads.json');
@@ -23,8 +25,13 @@ router.post('/', (req, res) => {
         ad: req.body.ad,
         description: req.body.description,
         price: req.body.price,
+
             
     }
+
+    const token = req.body.token
+    const profileId = getProfileId(token);
+    ad.postedBy = profileId;
 
     const image = req.files.image;
     const uploadPath = __dirname + '/../public/images/' + ad.id + '-' + image.name;
@@ -49,7 +56,17 @@ router.post('/', (req, res) => {
 
 
 router.get('/', (req, res) => {
-    res.json(readAds().reverse());
+    const ads = readAds().reverse();
+    const profiles = readProfiles();
+
+    ads.forEach(ad => {
+        const postedBy = ad.postedBy;
+        const profile = profiles.find(profile => profile.id === postedBy)
+        if(profile){
+            ad.postedByName = profile.name
+        }
+    })
+    res.json(ads);
 })
 
 

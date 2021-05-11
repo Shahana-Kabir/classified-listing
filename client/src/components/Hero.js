@@ -15,8 +15,10 @@ const details = () => {
     <AdDetails />
 }
 
-const Hero = () => {
+const Hero = (props) => {
     const [popular, setPopular] = useState([]);
+
+    const startAt = props.loggedIn ? '/PostAd' : '/';
 
 
 
@@ -47,6 +49,9 @@ const Hero = () => {
             </h2>
 
             <Row>
+
+            
+
                 <AdCard />
             </Row>
 

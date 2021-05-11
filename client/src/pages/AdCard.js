@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Link, Redirect } from 'react-router-dom';
 import car1 from '../assets/car1.jpg';
 import Card1 from '../components/Card1';
+import Profile from './Profile';
 
 
 
@@ -25,15 +26,16 @@ const AdCard = () => {
     return (<div>
         <Container>
 
-            
 
-            <Row className = "d-flex flex-row justify-content-between">
+
+
+            <Row className="d-flex flex-row justify-content-between">
 
                 {ads.map(ad => <Row key={ad.id} className="mb-4" xs="12"> <Card1 onChange={() => setAdsLoaded(false)} {...ad} /> </Row>)}
 
             </Row>
 
-           
+
         </Container>
     </div>);
 }

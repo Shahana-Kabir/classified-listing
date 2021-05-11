@@ -24,7 +24,7 @@ const LogIn = (props) => {
             email, password
         }
         try{
-            const response = await axios.post('http://localhost:8080/profiles/login', profile);
+            const response = await axios.post('http://localhost:8080/profiles/login/', profile);
             sessionStorage.setItem('token', response.data.token);
             sessionStorage.setItem('profileId', response.data.profileId);
             sessionStorage.setItem('name', response.data.name);
@@ -68,7 +68,7 @@ const LogIn = (props) => {
                 <Col>
                     <Form.Group>
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" required placeholder="Password" onChange={(e) => setEmail(e.target.value)}/>
+                        <Form.Control type="password" required placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
                         <Form.Control.Feedback type="invalid">
                             Passowrd is required.
                 </Form.Control.Feedback>

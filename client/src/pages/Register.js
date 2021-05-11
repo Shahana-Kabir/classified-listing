@@ -9,34 +9,34 @@ const Register = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-    // const [validated, setValidated] = useState(false);
+    const [validated, setValidated] = useState(false);
    const [posted, setPosted] = useState(false);
-    // const [passwordError, setPasswordError] = useState(false);
+    const [passwordError, setPasswordError] = useState(false);
 
     const submit = async (e) => {
           e.preventDefault();
 
-        // const form = e.currentTarget;
-        // if (!form.checkValidity()) {
-        //     setValidated(true);
-        //     return;
-        // }
+        const form = e.currentTarget;
+        if (!form.checkValidity()) {
+            setValidated(true);
+            return;
+        }
 
-        // if (password !== confirmPassword) {
-        //     setPasswordError(true);
-        //     return;
-        // }
-        // else {
-        //     setPasswordError(false);
-        // }
+        if (password !== confirmPassword) {
+            setPasswordError(true);
+            return;
+        }
+        else {
+            setPasswordError(false);
+        }
       
 
-    //    var profileData = {
-    //        name: form.name,
-    //        email: form.email,
-    //        password: form.password,
-    //        confirmPassword: form.confirmPassword
-    //    }
+       var profileData = {
+           name: form.name,
+           email: form.email,
+           password: form.password,
+           confirmPassword: form.confirmPassword
+       }
 
         const profile = {
             name, email, password, confirmPassword           
@@ -57,13 +57,13 @@ const Register = () => {
 
     if (posted) {
         return (
-            <Redirect to="/" />
+            <Redirect to="/LogIn" />
         )
     }
 
 
     return (<div>
-        <Form className = "mr-4 ml-4"  onSubmit={submit}>
+        <Form noValidate validated={validated} className = "mr-4 ml-4"  onSubmit={submit}>
             <Form.Group >
                 <Form.Label>Name</Form.Label>
                 <Form.Control required type="text" placeholder="Name" onChange={(e) => setName(e.target.value)} />

@@ -1,25 +1,30 @@
 import React, { Component } from "react";
 import './header.scss';
+import Home from '../pages/Home';
 import { Jumbotron } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import LogOut from './LogOut';
+import Join from './Join'
 
 import { Nav, Navbar, NavLink, Form, Button, FormControl, Container, Row, NavItem, Col } from 'react-bootstrap';
+import Register from "../pages/Register";
+import Hero from "./Hero";
 
 
-const Header = () => {
+const Header = (props) => {
     return (
 
         <div>
             <Container className="bg-light" >
 
 
-                <Row className="d-flex mb-4 pt-4">
+                <Row className="d-flex mb-4 pt-4 justify-content-between mr-4 ml-4">
                     <Col md="5">
 
                         <Link to="/">Kijiji</Link>
 
                     </Col>
-
+{/* 
                     <Col className="d-flex  flex-row justify-content-end">
 
                         <Col>
@@ -27,12 +32,31 @@ const Header = () => {
                         </Col>
                         <Col>
                             <Link to="/LogIn">LogIn</Link>
-                        </Col>
+                        </Col> */}
 
-                        <Col>
-                            <Link to="/PostAd">PostAd</Link>
+
+                        {props.loggedIn ?
+
+
+                            <Col>
+                                <Link to="/PostAd">PostAd</Link>
+                            </Col>
+                            : ''
+                        }
+                   
+
+                    {props.userName ?
+                        <Col className="ml-2">
+                        
+
+                            Logged in as {props.userName}
+
+
                         </Col>
-                    </Col>
+                        : ''}
+
+                    {props.loggedIn ? <LogOut onLogout={props.onLogout} /> : <Join />}
+
                 </Row>
                 <Row >
                     <Col >

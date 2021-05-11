@@ -1,30 +1,18 @@
 [
   {
-    "id": "660905ed2c2bd687c9e7d8d39aa70cc6093a23eb",
-    "ad": "gg",
-    "description": "hhh",
-    "price": "50",
-    "imagePath": "http://localhost:8080/images/660905ed2c2bd687c9e7d8d39aa70cc6093a23eb-torsten-dederichs-XRcEsQKTWGk-unsplash.jpg"
+    "id": "14b7e10c8614fdbe1bb2ece2fe46d0d2a4dfa6d8",
+    "ad": "House selling",
+    "description": "Want to sell a renovated house.",
+    "price": "500",
+    "postedBy": "cb51bfc2a552ea076c6737b20e3146e1ea82a689",
+    "imagePath": "http://localhost:8080/images/14b7e10c8614fdbe1bb2ece2fe46d0d2a4dfa6d8-r-architecture-mHJiuZx2b8M-unsplash.jpg"
   },
   {
-    "id": "6d982f84177b999717a455ea9476e2a2a703289e",
-    "ad": "sss",
-    "description": "sss",
-    "price": "50",
-    "imagePath": "http://localhost:8080/images/6d982f84177b999717a455ea9476e2a2a703289e-mahdi-bafande-J0HPkUtZQK8-unsplash.jpg"
-  },
-  {
-    "id": "20dce628dbdd1498666b4a338cbbcebf45b3263e",
-    "ad": "Car",
-    "description": "ssss",
-    "price": "40",
-    "imagePath": "http://localhost:8080/images/20dce628dbdd1498666b4a338cbbcebf45b3263e-kenny-krosky-2xjk8WWLFC4-unsplash.jpg"
-  },
-  {
-    "id": "a5760313a6a7b24c060da13baca4d5c19c5ea605",
-    "ad": "ggg",
-    "description": "dddd",
-    "price": "30",
-    "imagePath": "http://localhost:8080/images/a5760313a6a7b24c060da13baca4d5c19c5ea605-mahdi-bafande-J0HPkUtZQK8-unsplash.jpg"
+    "id": "663422ce5c32061b17874a4c873abc1a50976481",
+    "ad": "House selling",
+    "description": "Want to sell house",
+    "price": "500",
+    "postedBy": "cb51bfc2a552ea076c6737b20e3146e1ea82a689",
+    "imagePath": "http://localhost:8080/images/663422ce5c32061b17874a4c873abc1a50976481-pascal-bernardon-TVcj-so0GDs-unsplash.jpg"
   }
 ]
