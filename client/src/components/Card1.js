@@ -19,15 +19,15 @@ const Card1 = (props) => {
                             <strong> Posted by:</strong>{props.postedByName}
                         </Card.Text>
 
-                        <Card.Text>
+                        {/* <Card.Text>
                             <strong> Description:</strong>{props.description}
-                        </Card.Text>
+                        </Card.Text> */}
 
                         <Card.Text>
                             <strong> Price:</strong>{props.price}
                         </Card.Text>
 
-                        <Link to="/AdDetails" className="d-flex flew-row justify-content-center pb-4">Details</Link>
+                        <Link to={"/ads/" + props.id } className="d-flex flew-row justify-content-center pb-4">Details</Link>
 
                     </Card.Body>
                 </Card>

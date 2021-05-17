@@ -14,5 +14,13 @@
     "price": "500",
     "postedBy": "cb51bfc2a552ea076c6737b20e3146e1ea82a689",
     "imagePath": "http://localhost:8080/images/663422ce5c32061b17874a4c873abc1a50976481-pascal-bernardon-TVcj-so0GDs-unsplash.jpg"
+  },
+  {
+    "id": "652a1c686f0543a14cb4eccf2ce4ff063abdb0e1",
+    "ad": "Want to sell ahouse",
+    "description": "Renovated beautiful house",
+    "price": "500",
+    "postedBy": "cb51bfc2a552ea076c6737b20e3146e1ea82a689",
+    "imagePath": "http://localhost:8080/images/652a1c686f0543a14cb4eccf2ce4ff063abdb0e1-terrah-holly-pmhdkgRCbtE-unsplash.jpg"
   }
 ]

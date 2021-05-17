@@ -6,10 +6,15 @@ const { getProfileId } = require('./tokens');
 const {readProfiles} = require('./profiledata');
 
 function readAds() {
-    const ads = fs.readFileSync('./data/ads.json');
+    const ads = fs.readFileSync('./data/ads.json');    
     const parsedData = JSON.parse(ads);
+    console.log(parsedData);
     return parsedData;
+   
 }
+
+
+
 
 function writeAds(ads) {
     const jsonAds = JSON.stringify(ads, null, '  ');
@@ -70,6 +75,17 @@ router.get('/', (req, res) => {
 })
 
 
+router.get('/:adId', (req, res) => {
+    console.log('shahana');
+let newId = req.params.adId;
+console.log(newId);
+let allAds = readAds();
+//  console.log(allAds);
+let ad = allAds.find(ad =>  ad.id === newId)
+console.log(ad);
+res.send(ad);
 
+
+})
 
 module.exports = router;
