@@ -36,9 +36,9 @@ const AdDetails = (props) => {
     return (
         
         <Container>
-        <Card className="mr-9.37 ml-4 mt-4 mb-4" style={{ width: '18rem' }} >
-        <Card.Img variant="top" src={ad.imagePath} className="mt-4" />
-        <Card.Body>
+        <Card className="mr-9.37 ml-4 mt-4 mb-4"  >
+        <Card.Img variant="top" src={ad.imagePath} style={{ width: '25rem', height: '30rem'}} />
+        {/* <Card.Body>
             
             <Card.Text>
                 Description:{ad.description}
@@ -47,7 +47,7 @@ const AdDetails = (props) => {
             <Card.Text>
                 Price: {ad.price}
             </Card.Text>
-        </Card.Body>
+        </Card.Body> */}
     </Card>
     </Container>
     );

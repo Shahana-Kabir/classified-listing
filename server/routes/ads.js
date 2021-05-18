@@ -60,6 +60,8 @@ router.post('/', (req, res) => {
 });
 
 
+
+
 router.get('/', (req, res) => {
     const ads = readAds().reverse();
     const profiles = readProfiles();
@@ -80,7 +82,6 @@ router.get('/:adId', (req, res) => {
 let newId = req.params.adId;
 console.log(newId);
 let allAds = readAds();
-//  console.log(allAds);
 let ad = allAds.find(ad =>  ad.id === newId)
 console.log(ad);
 res.send(ad);

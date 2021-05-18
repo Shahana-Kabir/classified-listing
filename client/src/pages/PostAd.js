@@ -11,6 +11,7 @@ const PostAd = () => {
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');   
     const [image, setImage] = useState(null);
+    const [image2, setImage2] = useState(null);
     const [posted, setPosted] = useState(false);
 
 
@@ -85,9 +86,17 @@ const PostAd = () => {
 
 
                     <Col>
+                    <Row>
                     <Form.Group>
-                            <Form.File label="Image" required onChange={(e) => setImage(e.target.files[0])} />
+                            <Form.File label="Image1" required onChange={(e) => setImage(e.target.files[0])} />
                         </Form.Group>
+                        </Row>
+
+                        <Row>
+                    <Form.Group>
+                            <Form.File label="Image2" required onChange={(e) => setImage2(e.target.files[0])} />
+                        </Form.Group>
+                        </Row>
                     </Col>
 
 
