@@ -3,18 +3,15 @@ const router = express.Router();
 const fs = require('fs');
 const crypto = require('crypto');
 const { getProfileId } = require('./tokens');
-const {readProfiles} = require('./profiledata');
+const { readProfiles } = require('./profiledata');
 
 function readAds() {
-    const ads = fs.readFileSync('./data/ads.json');    
+    const ads = fs.readFileSync('./data/ads.json');
     const parsedData = JSON.parse(ads);
     console.log(parsedData);
     return parsedData;
-   
+
 }
-
-
-
 
 function writeAds(ads) {
     const jsonAds = JSON.stringify(ads, null, '  ');
@@ -30,8 +27,6 @@ router.post('/', (req, res) => {
         ad: req.body.ad,
         description: req.body.description,
         price: req.body.price,
-
-            
     }
 
     const token = req.body.token
@@ -42,24 +37,29 @@ router.post('/', (req, res) => {
     const uploadPath = __dirname + '/../public/images/' + ad.id + '-' + image.name;
 
     image.mv(uploadPath, (err) => {
-        if (err){
-          return res.status(500).send(err);
+        if (err) {
+            return res.status(500).send(err);
         }
 
-        ad.imagePath = 'http://localhost:8080/images/'  + ad.id +  '-' + image.name;
 
-        const ads = readAds();
-        ads.push(ad);
-        writeAds(ads);
-        res.json(ad);
+        const image2 = req.files.image2;
+        const uploadPath2 = __dirname + '/../public/images/' + ad.id + '-' + image2.name;
 
-        
-      });
+        image2.mv(uploadPath2, (err) => {
+            if (err) {
+                return res.status(500).send(err);
+            }
 
-    
+            ad.imagePath = 'http://localhost:8080/images/' + ad.id + '-' + image.name;
+            ad.imagePath2 = 'http://localhost:8080/images/' + ad.id + '-' + image2.name;
+
+            const ads = readAds();
+            ads.push(ad);
+            writeAds(ads);
+            res.json(ad);
+        });
+    })
 });
-
-
 
 
 router.get('/', (req, res) => {
@@ -69,7 +69,7 @@ router.get('/', (req, res) => {
     ads.forEach(ad => {
         const postedBy = ad.postedBy;
         const profile = profiles.find(profile => profile.id === postedBy)
-        if(profile){
+        if (profile) {
             ad.postedByName = profile.name
         }
     })
@@ -79,13 +79,12 @@ router.get('/', (req, res) => {
 
 router.get('/:adId', (req, res) => {
     console.log('shahana');
-let newId = req.params.adId;
-console.log(newId);
-let allAds = readAds();
-let ad = allAds.find(ad =>  ad.id === newId)
-console.log(ad);
-res.send(ad);
-
+    let newId = req.params.adId;
+    console.log(newId);
+    let allAds = readAds();
+    let ad = allAds.find(ad => ad.id === newId)
+    console.log(ad);
+    res.send(ad);
 
 })
 

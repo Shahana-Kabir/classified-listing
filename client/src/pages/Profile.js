@@ -22,6 +22,7 @@ const Profile = (props) => {
     return (<>
         <Card className="mt-4">
             <Card.Img variant="top" className="profile__image mt-4" src={profile.imagePath} />
+            <Card.Img variant="top" className="profile__image mt-4" src={profile.imagePath2} />
             <Card.Body>
 
                 <Card.Text>

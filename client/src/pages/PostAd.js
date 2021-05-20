@@ -24,6 +24,7 @@ const PostAd = () => {
         formData.append("price", price);
         formData.append("description", description);
         formData.append("image", image);
+        formData.append("image2", image2);
         const token = sessionStorage.getItem('token');
         formData.append("token", token);
         
